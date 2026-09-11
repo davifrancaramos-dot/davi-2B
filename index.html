@@ -5,10 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto Integrador | Nossa Turma</title>
 
 ```
+<title>Projeto Integrador | Nossa Turma</title>
+
 <style>
+
     * {
         margin: 0;
         padding: 0;
@@ -57,6 +59,10 @@
         z-index: -1;
     }
 
+    /* =========================
+       CABEÇALHO
+    ========================= */
+
     header {
         position: fixed;
         top: 0;
@@ -98,6 +104,10 @@
         color: #38bdf8;
     }
 
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
         min-height: 100vh;
         display: flex;
@@ -130,8 +140,16 @@
         line-height: 1.05;
         font-weight: 900;
         margin-bottom: 25px;
-        background: linear-gradient(90deg, #ffffff, #7dd3fc, #a78bfa);
+
+        background: linear-gradient(
+            90deg,
+            #ffffff,
+            #7dd3fc,
+            #a78bfa
+        );
+
         -webkit-background-clip: text;
+        background-clip: text;
         color: transparent;
     }
 
@@ -161,13 +179,21 @@
 
     .botao-principal {
         color: #020617;
-        background: linear-gradient(135deg, #38bdf8, #818cf8);
-        box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
+        background: linear-gradient(
+            135deg,
+            #38bdf8,
+            #818cf8
+        );
+
+        box-shadow:
+            0 0 30px rgba(56, 189, 248, 0.25);
     }
 
     .botao-principal:hover {
         transform: translateY(-4px);
-        box-shadow: 0 0 40px rgba(56, 189, 248, 0.45);
+
+        box-shadow:
+            0 0 40px rgba(56, 189, 248, 0.45);
     }
 
     .botao-secundario {
@@ -180,6 +206,10 @@
         border-color: #38bdf8;
         color: #38bdf8;
     }
+
+    /* =========================
+       CONTEÚDO
+    ========================= */
 
     main {
         max-width: 1150px;
@@ -214,17 +244,26 @@
         margin-top: 10px;
     }
 
+    /* =========================
+       BIOGRAFIA
+    ========================= */
+
     .bio {
         padding: 45px;
+
         background: linear-gradient(
             145deg,
             rgba(255, 255, 255, 0.07),
             rgba(255, 255, 255, 0.025)
         );
+
         border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 25px;
+
         backdrop-filter: blur(15px);
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.25);
     }
 
     .bio p {
@@ -236,24 +275,37 @@
         color: #7dd3fc;
     }
 
-    /* IMAGEM DA TURMA */
+    /* =========================
+       FOTO DA TURMA
+    ========================= */
 
     .imagem-turma {
         display: block;
         width: 100%;
         max-height: 500px;
         object-fit: cover;
+
         border-radius: 18px;
         margin-top: 25px;
+
         border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.3);
+
         transition: 0.4s;
     }
 
     .imagem-turma:hover {
         transform: scale(1.01);
-        border-color: rgba(56, 189, 248, 0.4);
+
+        border-color:
+            rgba(56, 189, 248, 0.4);
     }
+
+    /* =========================
+       CARDS
+    ========================= */
 
     .cards {
         display: grid;
@@ -264,30 +316,43 @@
     .card {
         position: relative;
         padding: 35px;
+
         background: rgba(15, 23, 42, 0.72);
+
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 22px;
+
         overflow: hidden;
         transition: 0.4s;
+
         backdrop-filter: blur(12px);
     }
 
     .card::before {
         content: "";
+
         position: absolute;
+
         width: 150px;
         height: 150px;
+
         border-radius: 50%;
+
         top: -80px;
         right: -80px;
+
         background: #38bdf8;
+
         filter: blur(60px);
         opacity: 0.15;
     }
 
     .card:hover {
         transform: translateY(-10px);
-        border-color: rgba(56, 189, 248, 0.4);
+
+        border-color:
+            rgba(56, 189, 248, 0.4);
+
         box-shadow:
             0 20px 50px rgba(0, 0, 0, 0.35),
             0 0 30px rgba(56, 189, 248, 0.08);
@@ -296,13 +361,21 @@
     .icone {
         width: 65px;
         height: 65px;
+
         display: flex;
         justify-content: center;
         align-items: center;
+
         font-size: 32px;
+
         border-radius: 18px;
-        background: rgba(56, 189, 248, 0.1);
-        border: 1px solid rgba(56, 189, 248, 0.2);
+
+        background:
+            rgba(56, 189, 248, 0.1);
+
+        border:
+            1px solid rgba(56, 189, 248, 0.2);
+
         margin-bottom: 22px;
     }
 
@@ -320,12 +393,17 @@
         color: #e2e8f0;
     }
 
+    /* =========================
+       CORES DOS CARDS
+    ========================= */
+
     .robotica {
         border-top: 3px solid #f59e0b;
     }
 
     .robotica .icone {
-        background: rgba(245, 158, 11, 0.1);
+        background:
+            rgba(245, 158, 11, 0.1);
     }
 
     .fisica {
@@ -333,7 +411,8 @@
     }
 
     .fisica .icone {
-        background: rgba(34, 197, 94, 0.1);
+        background:
+            rgba(34, 197, 94, 0.1);
     }
 
     .programacao {
@@ -341,28 +420,38 @@
     }
 
     .programacao .icone {
-        background: rgba(167, 139, 250, 0.1);
+        background:
+            rgba(167, 139, 250, 0.1);
     }
 
     .integrador {
         border-top: 3px solid #38bdf8;
     }
 
-    /* IMAGEM E VÍDEO DA ROBÓTICA */
+    /* =========================
+       MÍDIA DA ROBÓTICA
+    ========================= */
 
     .midia-robotica {
         margin-top: 25px;
+
         display: flex;
         flex-direction: column;
+
         gap: 20px;
     }
 
     .imagem-robotica,
     .video-robotica {
         width: 100%;
+
         border-radius: 18px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.1);
+
+        box-shadow:
+            0 15px 40px rgba(0, 0, 0, 0.3);
     }
 
     .imagem-robotica {
@@ -376,7 +465,8 @@
     }
 
     .imagem-robotica:hover {
-        border-color: rgba(245, 158, 11, 0.5);
+        border-color:
+            rgba(245, 158, 11, 0.5);
     }
 
     .video-robotica:focus {
@@ -384,37 +474,61 @@
         outline-offset: 3px;
     }
 
+    .legenda-video {
+        color: #94a3b8;
+        font-size: 14px;
+        margin-top: -10px;
+    }
+
+    /* =========================
+       PROJETOS
+    ========================= */
+
     .projetos {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
         gap: 18px;
     }
 
     .projeto {
         min-height: 210px;
+
         padding: 28px;
+
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+
         border-radius: 22px;
+
         background: linear-gradient(
             145deg,
             rgba(37, 99, 235, 0.25),
             rgba(15, 23, 42, 0.8)
         );
-        border: 1px solid rgba(255, 255, 255, 0.08);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.08);
+
         transition: 0.4s;
     }
 
     .projeto:hover {
-        transform: translateY(-8px) scale(1.02);
-        border-color: rgba(56, 189, 248, 0.4);
+        transform:
+            translateY(-8px) scale(1.02);
+
+        border-color:
+            rgba(56, 189, 248, 0.4);
     }
 
     .numero {
         color: #38bdf8;
         font-size: 13px;
         font-weight: bold;
+
         margin-bottom: auto;
     }
 
@@ -428,16 +542,25 @@
         font-size: 14px;
     }
 
+    /* =========================
+       FINAL
+    ========================= */
+
     .final {
         text-align: center;
+
         padding: 70px 30px;
+
         border-radius: 30px;
+
         background: linear-gradient(
             135deg,
             rgba(37, 99, 235, 0.2),
             rgba(124, 58, 237, 0.18)
         );
-        border: 1px solid rgba(255, 255, 255, 0.1);
+
+        border:
+            1px solid rgba(255, 255, 255, 0.1);
     }
 
     .final h2 {
@@ -451,10 +574,18 @@
         color: #94a3b8;
     }
 
+    /* =========================
+       RODAPÉ
+    ========================= */
+
     footer {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        border-top:
+            1px solid rgba(255, 255, 255, 0.08);
+
         padding: 45px 20px;
+
         text-align: center;
+
         background: #040711;
     }
 
@@ -467,7 +598,12 @@
         font-size: 14px;
     }
 
+    /* =========================
+       ANIMAÇÃO
+    ========================= */
+
     @keyframes aparecer {
+
         from {
             opacity: 0;
             transform: translateY(25px);
@@ -477,7 +613,12 @@
             opacity: 1;
             transform: translateY(0);
         }
+
     }
+
+    /* =========================
+       TABLET
+    ========================= */
 
     @media (max-width: 850px) {
 
@@ -498,19 +639,27 @@
         }
 
         .projetos {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:
+                repeat(2, 1fr);
         }
 
         .bio {
             padding: 28px;
         }
+
     }
+
+    /* =========================
+       CELULAR
+    ========================= */
 
     @media (max-width: 550px) {
 
         header {
             position: absolute;
+
             flex-direction: column;
+
             gap: 12px;
         }
 
@@ -536,7 +685,9 @@
         .video-robotica {
             max-height: none;
         }
+
     }
+
 </style>
 ```
 
@@ -545,6 +696,10 @@
 <body>
 
 ```
+<!-- =========================
+     CABEÇALHO
+========================= -->
+
 <header>
 
     <div class="logo">
@@ -552,16 +707,36 @@
     </div>
 
     <nav>
-        <a href="#inicio">Início</a>
-        <a href="#turma">Turma</a>
-        <a href="#disciplinas">Disciplinas</a>
-        <a href="#projetos">Projetos</a>
+
+        <a href="#inicio">
+            Início
+        </a>
+
+        <a href="#turma">
+            Turma
+        </a>
+
+        <a href="#disciplinas">
+            Disciplinas
+        </a>
+
+        <a href="#projetos">
+            Projetos
+        </a>
+
     </nav>
 
 </header>
 
 
-<section class="hero" id="inicio">
+<!-- =========================
+     INÍCIO
+========================= -->
+
+<section
+    class="hero"
+    id="inicio"
+>
 
     <div class="hero-content">
 
@@ -576,17 +751,24 @@
         </h1>
 
         <p>
-            Uma jornada de descobertas, tecnologia, criatividade
-            e trabalho em equipe através do Projeto Integrador.
+            Uma jornada de descobertas, tecnologia,
+            criatividade e trabalho em equipe
+            através do Projeto Integrador.
         </p>
 
         <div class="botoes">
 
-            <a href="#disciplinas" class="botao botao-principal">
+            <a
+                href="#disciplinas"
+                class="botao botao-principal"
+            >
                 Explorar projeto ↓
             </a>
 
-            <a href="#projetos" class="botao botao-secundario">
+            <a
+                href="#projetos"
+                class="botao botao-secundario"
+            >
                 Ver projetos
             </a>
 
@@ -599,15 +781,22 @@
 
 <main>
 
-    <!-- NOSSA TURMA -->
+
+    <!-- =========================
+         NOSSA TURMA
+    ========================= -->
 
     <section id="turma">
 
         <div class="titulo">
 
-            <small>01 • Nossa história</small>
+            <small>
+                01 • Nossa história
+            </small>
 
-            <h2>🌟 Nossa Turma</h2>
+            <h2>
+                🌟 Nossa Turma
+            </h2>
 
             <p>
                 Diferentes pessoas, uma mesma jornada.
@@ -615,49 +804,70 @@
 
         </div>
 
+
         <div class="bio">
 
             <p>
-                Somos uma turma formada por estudantes com diferentes
-                personalidades, ideias, talentos e formas de enxergar o mundo.
-                Mesmo com nossas diferenças, aprendemos que, quando trabalhamos
-                juntos, conseguimos transformar desafios em oportunidades
+                Somos uma turma formada por estudantes
+                com diferentes personalidades, ideias,
+                talentos e formas de enxergar o mundo.
+                Mesmo com nossas diferenças, aprendemos
+                que, quando trabalhamos juntos, conseguimos
+                transformar desafios em oportunidades
                 e ideias em grandes projetos.
             </p>
 
             <p>
                 Ao longo do ano, vivenciamos momentos de
-                <strong>aprendizado, descobertas, criatividade e muita colaboração</strong>.
-                Nas aulas de <strong>Robótica, Física, Tecnociência e Programação</strong>,
-                tivemos a oportunidade de colocar nossos conhecimentos em prática,
-                experimentar novas possibilidades e aprender com nossos próprios
-                erros e acertos.
+                <strong>
+                    aprendizado, descobertas, criatividade
+                    e muita colaboração
+                </strong>.
+                Nas aulas de
+                <strong>
+                    Robótica, Física, Tecnociência
+                    e Programação
+                </strong>,
+                tivemos a oportunidade de colocar nossos
+                conhecimentos em prática, experimentar
+                novas possibilidades e aprender com nossos
+                próprios erros e acertos.
             </p>
 
             <p>
-                Cada projeto, trabalho e desafio contribuiu para o crescimento
-                da turma, fortalecendo nossa capacidade de
-                <strong>trabalhar em equipe, solucionar problemas e pensar
-                de forma criativa.</strong>
+                Cada projeto, trabalho e desafio contribuiu
+                para o crescimento da turma, fortalecendo
+                nossa capacidade de
+                <strong>
+                    trabalhar em equipe, solucionar problemas
+                    e pensar de forma criativa.
+                </strong>
             </p>
 
             <p>
-                Este portfólio representa um pouco dessa caminhada.
-                Aqui estão registrados nossos projetos, experiências e
-                conquistas, mostrando não apenas aquilo que fizemos,
-                mas também <strong>tudo o que aprendemos durante o processo.</strong>
+                Este portfólio representa um pouco dessa
+                caminhada. Aqui estão registrados nossos
+                projetos, experiências e conquistas,
+                mostrando não apenas aquilo que fizemos,
+                mas também
+                <strong>
+                    tudo o que aprendemos durante o processo.
+                </strong>
             </p>
 
             <p>
-                Somos uma turma que aprende, cria, erra, tenta novamente
-                e evolui. E essa é apenas mais uma parte da nossa história. 🚀
+                Somos uma turma que aprende, cria, erra,
+                tenta novamente e evolui. E essa é apenas
+                mais uma parte da nossa história. 🚀
             </p>
 
 
-            <!-- IMAGEM DA TURMA -->
+            <!-- =========================
+                 FOTO DA TURMA
+            ========================= -->
 
             <img
-                src="imagens/nossa-turma.jpg"
+                src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/WhatsApp%20Image%202026-09-10%20at%2007.51.25.jpeg"
                 alt="Foto da nossa turma"
                 class="imagem-turma"
             >
@@ -667,15 +877,21 @@
     </section>
 
 
-    <!-- DISCIPLINAS -->
+    <!-- =========================
+         DISCIPLINAS
+    ========================= -->
 
     <section id="disciplinas">
 
         <div class="titulo">
 
-            <small>02 • Conhecimento</small>
+            <small>
+                02 • Conhecimento
+            </small>
 
-            <h2>📚 Nossas Disciplinas</h2>
+            <h2>
+                📚 Nossas Disciplinas
+            </h2>
 
             <p>
                 Quatro áreas conectadas por um único projeto.
@@ -687,141 +903,223 @@
         <div class="cards">
 
 
-            <!-- ROBÓTICA -->
+            <!-- =========================
+                 ROBÓTICA
+            ========================= -->
 
             <div class="card robotica">
 
-                <div class="icone">🤖</div>
+                <div class="icone">
+                    🤖
+                </div>
 
-                <h3>Robótica</h3>
+                <h3>
+                    Robótica
+                </h3>
 
                 <p>
-                    Transformamos conhecimentos em projetos práticos,
-                    criando e testando diferentes
-                    <strong>protótipos e circuitos.</strong>
+                    Transformamos conhecimentos em projetos
+                    práticos, criando e testando diferentes
+                    <strong>
+                        protótipos e circuitos.
+                    </strong>
                 </p>
 
                 <p>
-                    Desenvolvemos o <strong>Disco de Newton</strong>,
-                    <strong>LED Fade-in e Fade-out</strong>,
-                    <strong>LED RGB</strong> e um
-                    <strong>semáforo de cruzamento para carros.</strong>
+                    Desenvolvemos o
+                    <strong>
+                        Disco de Newton
+                    </strong>,
+                    <strong>
+                        LED Fade-in e Fade-out
+                    </strong>,
+                    <strong>
+                        LED RGB
+                    </strong>
+                    e um
+                    <strong>
+                        semáforo de cruzamento para carros.
+                    </strong>
                 </p>
 
                 <p>
-                    Também trabalhamos com sensores de presença,
-                    gás e fumaça.
+                    Também trabalhamos com sensores de
+                    presença, gás e fumaça.
                 </p>
 
                 <p>
                     Nosso próximo desafio é construir um
-                    <strong>robô seguidor de linha.</strong> 🚀
+                    <strong>
+                        robô seguidor de linha.
+                    </strong>
+                    🚀
                 </p>
 
 
-                <!-- IMAGEM E VÍDEO DA ROBÓTICA -->
+                <!-- =========================
+                     VÍDEOS DA ROBÓTICA
+                ========================= -->
 
                 <div class="midia-robotica">
 
-                    <img
-                        src="imagens/robotica.jpg"
-                        alt="Projeto realizado na aula de Robótica"
-                        class="imagem-robotica"
-                    >
+
+                    <!-- VÍDEO DISCO DE NEWTON -->
 
                     <video
                         class="video-robotica"
                         controls
-                        poster="imagens/capa-video.jpg"
+                        preload="metadata"
                     >
 
                         <source
-                            src="videos/robotica.mp4"
+                            src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/WhatsApp%20Video%202026-09-11%20at%2010.07.13.mp4"
                             type="video/mp4"
                         >
 
-                        Seu navegador não suporta a reprodução de vídeos.
+                        Seu navegador não suporta
+                        a reprodução de vídeos.
 
                     </video>
+
+                    <p class="legenda-video">
+                        🌈 Vídeo do projeto Disco de Newton.
+                    </p>
+
+
+                    <!-- VÍDEO SENSOR DE FUMAÇA -->
+
+                    <video
+                        class="video-robotica"
+                        controls
+                        preload="metadata"
+                    >
+
+                        <source
+                            src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/VID-20260821-WA0025.mp4"
+                            type="video/mp4"
+                        >
+
+                        Seu navegador não suporta
+                        a reprodução de vídeos.
+
+                    </video>
+
+                    <p class="legenda-video">
+                        🚨 Vídeo do sensor de fumaça.
+                    </p>
 
                 </div>
 
             </div>
 
 
-            <!-- FÍSICA -->
+            <!-- =========================
+                 FÍSICA
+            ========================= -->
 
             <div class="card fisica">
 
-                <div class="icone">🔬</div>
+                <div class="icone">
+                    🔬
+                </div>
 
-                <h3>Física e Tecnociência</h3>
+                <h3>
+                    Física e Tecnociência
+                </h3>
 
                 <p>
-                    Relacionamos conhecimentos científicos com
-                    situações práticas do nosso cotidiano.
+                    Relacionamos conhecimentos científicos
+                    com situações práticas do nosso cotidiano.
                 </p>
 
                 <p>
-                    Aprendemos a observar fenômenos, levantar hipóteses,
-                    realizar testes e analisar resultados.
+                    Aprendemos a observar fenômenos,
+                    levantar hipóteses, realizar testes
+                    e analisar resultados.
                 </p>
 
                 <p>
-                    A união entre ciência e tecnologia mostrou como
-                    conceitos científicos podem ser aplicados na criação
-                    de projetos tecnológicos.
+                    A união entre ciência e tecnologia mostrou
+                    como conceitos científicos podem ser
+                    aplicados na criação de projetos tecnológicos.
                 </p>
 
             </div>
 
 
-            <!-- PROGRAMAÇÃO -->
+            <!-- =========================
+                 PROGRAMAÇÃO
+            ========================= -->
 
             <div class="card programacao">
 
-                <div class="icone">💻</div>
+                <div class="icone">
+                    💻
+                </div>
 
-                <h3>Programação</h3>
+                <h3>
+                    Programação
+                </h3>
 
                 <p>
-                    Estamos aprendendo os fundamentos da linguagem
-                    <strong>HTML</strong> e como ela é utilizada para
-                    criar páginas na internet.
+                    Estamos aprendendo os fundamentos da
+                    linguagem
+                    <strong>
+                        HTML
+                    </strong>
+                    e como ela é utilizada para criar
+                    páginas na internet.
                 </p>
 
                 <p>
-                    Utilizando o <strong>Visual Studio Code</strong>,
-                    aprendemos a escrever códigos, organizar arquivos,
-                    testar alterações e corrigir erros.
+                    Utilizando o
+                    <strong>
+                        Visual Studio Code
+                    </strong>,
+                    aprendemos a escrever códigos,
+                    organizar arquivos, testar alterações
+                    e corrigir erros.
                 </p>
 
                 <p>
-                    O conhecimento adquirido está sendo utilizado para
-                    desenvolver nosso <strong>produto final multidisciplinar.</strong>
+                    O conhecimento adquirido está sendo
+                    utilizado para desenvolver nosso
+                    <strong>
+                        produto final multidisciplinar.
+                    </strong>
                 </p>
 
             </div>
 
 
-            <!-- PROJETO INTEGRADOR -->
+            <!-- =========================
+                 PROJETO INTEGRADOR
+            ========================= -->
 
             <div class="card integrador">
 
-                <div class="icone">💡</div>
+                <div class="icone">
+                    💡
+                </div>
 
-                <h3>Projeto Integrador</h3>
+                <h3>
+                    Projeto Integrador
+                </h3>
 
                 <p>
                     Reunimos conhecimentos de
-                    <strong>Robótica, Física, Tecnociência e Programação</strong>
+                    <strong>
+                        Robótica, Física, Tecnociência
+                        e Programação
+                    </strong>
                     em uma única experiência.
                 </p>
 
                 <p>
-                    Nosso objetivo é transformar conhecimento em criação,
-                    trabalhando em equipe e desenvolvendo soluções
-                    criativas para diferentes desafios.
+                    Nosso objetivo é transformar conhecimento
+                    em criação, trabalhando em equipe e
+                    desenvolvendo soluções criativas para
+                    diferentes desafios.
                 </p>
 
             </div>
@@ -831,15 +1129,21 @@
     </section>
 
 
-    <!-- PROJETOS -->
+    <!-- =========================
+         PROJETOS
+    ========================= -->
 
     <section id="projetos">
 
         <div class="titulo">
 
-            <small>03 • Mão na massa</small>
+            <small>
+                03 • Mão na massa
+            </small>
 
-            <h2>⚙️ Nossos Projetos</h2>
+            <h2>
+                ⚙️ Nossos Projetos
+            </h2>
 
             <p>
                 Ideias que saíram do papel e ganharam vida.
@@ -850,11 +1154,16 @@
 
         <div class="projetos">
 
+
             <div class="projeto">
 
-                <span class="numero">PROJETO 01</span>
+                <span class="numero">
+                    PROJETO 01
+                </span>
 
-                <h3>🌈 Disco de Newton</h3>
+                <h3>
+                    🌈 Disco de Newton
+                </h3>
 
                 <p>
                     Uma experiência para compreender
@@ -866,9 +1175,13 @@
 
             <div class="projeto">
 
-                <span class="numero">PROJETO 02</span>
+                <span class="numero">
+                    PROJETO 02
+                </span>
 
-                <h3>💡 LED RGB</h3>
+                <h3>
+                    💡 LED RGB
+                </h3>
 
                 <p>
                     Exploração das diferentes combinações
@@ -880,9 +1193,13 @@
 
             <div class="projeto">
 
-                <span class="numero">PROJETO 03</span>
+                <span class="numero">
+                    PROJETO 03
+                </span>
 
-                <h3>🚦 Semáforo</h3>
+                <h3>
+                    🚦 Semáforo
+                </h3>
 
                 <p>
                     Simulação de um sistema de trânsito
@@ -894,9 +1211,13 @@
 
             <div class="projeto">
 
-                <span class="numero">PROJETO 04</span>
+                <span class="numero">
+                    PROJETO 04
+                </span>
 
-                <h3>🤖 Robô</h3>
+                <h3>
+                    🤖 Robô
+                </h3>
 
                 <p>
                     Próximo desafio envolvendo sensores,
@@ -910,20 +1231,24 @@
     </section>
 
 
-    <!-- FINAL -->
+    <!-- =========================
+         MENSAGEM FINAL
+    ========================= -->
 
     <section>
 
         <div class="final">
 
             <h2>
-                🚀 E essa é só uma parte da nossa história.
+                🚀 E essa é só uma parte
+                da nossa história.
             </h2>
 
             <p>
                 Cada erro nos ensinou algo novo.
                 Cada desafio nos fez evoluir.
-                E cada projeto mostrou que, quando trabalhamos juntos,
+                E cada projeto mostrou que,
+                quando trabalhamos juntos,
                 podemos transformar ideias em realidade.
             </p>
 
@@ -934,11 +1259,15 @@
 </main>
 
 
-<!-- RODAPÉ -->
+<!-- =========================
+     RODAPÉ
+========================= -->
 
 <footer>
 
-    <h3>🚀 Projeto Integrador</h3>
+    <h3>
+        🚀 Projeto Integrador
+    </h3>
 
     <p>
         Robótica • Física • Tecnociência • Programação
