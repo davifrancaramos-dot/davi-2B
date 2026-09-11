@@ -1,4 +1,13 @@
-<!DOCTYPE html> <html lang="pt-br"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Projeto Integrador | Nossa Turma</title>
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Integrador | Nossa Turma</title>
+
+```
 <style>
     * {
         margin: 0;
@@ -227,6 +236,25 @@
         color: #7dd3fc;
     }
 
+    /* IMAGEM DA TURMA */
+
+    .imagem-turma {
+        display: block;
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        border-radius: 18px;
+        margin-top: 25px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        transition: 0.4s;
+    }
+
+    .imagem-turma:hover {
+        transform: scale(1.01);
+        border-color: rgba(56, 189, 248, 0.4);
+    }
+
     .cards {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -318,6 +346,42 @@
 
     .integrador {
         border-top: 3px solid #38bdf8;
+    }
+
+    /* IMAGEM E VÍDEO DA ROBÓTICA */
+
+    .midia-robotica {
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .imagem-robotica,
+    .video-robotica {
+        width: 100%;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .imagem-robotica {
+        max-height: 350px;
+        object-fit: cover;
+    }
+
+    .video-robotica {
+        max-height: 400px;
+        background: #020617;
+    }
+
+    .imagem-robotica:hover {
+        border-color: rgba(245, 158, 11, 0.5);
+    }
+
+    .video-robotica:focus {
+        outline: 2px solid #f59e0b;
+        outline-offset: 3px;
     }
 
     .projetos {
@@ -466,10 +530,21 @@
         .final h2 {
             font-size: 30px;
         }
+
+        .imagem-turma,
+        .imagem-robotica,
+        .video-robotica {
+            max-height: none;
+        }
     }
 </style>
+```
 
-</head> <body>
+</head>
+
+<body>
+
+```
 <header>
 
     <div class="logo">
@@ -484,6 +559,7 @@
     </nav>
 
 </header>
+
 
 <section class="hero" id="inicio">
 
@@ -520,7 +596,10 @@
 
 </section>
 
+
 <main>
+
+    <!-- NOSSA TURMA -->
 
     <section id="turma">
 
@@ -574,9 +653,21 @@
                 e evolui. E essa é apenas mais uma parte da nossa história. 🚀
             </p>
 
+
+            <!-- IMAGEM DA TURMA -->
+
+            <img
+                src="imagens/nossa-turma.jpg"
+                alt="Foto da nossa turma"
+                class="imagem-turma"
+            >
+
         </div>
 
     </section>
+
+
+    <!-- DISCIPLINAS -->
 
     <section id="disciplinas">
 
@@ -592,7 +683,11 @@
 
         </div>
 
+
         <div class="cards">
+
+
+            <!-- ROBÓTICA -->
 
             <div class="card robotica">
 
@@ -623,7 +718,38 @@
                     <strong>robô seguidor de linha.</strong> 🚀
                 </p>
 
+
+                <!-- IMAGEM E VÍDEO DA ROBÓTICA -->
+
+                <div class="midia-robotica">
+
+                    <img
+                        src="imagens/robotica.jpg"
+                        alt="Projeto realizado na aula de Robótica"
+                        class="imagem-robotica"
+                    >
+
+                    <video
+                        class="video-robotica"
+                        controls
+                        poster="imagens/capa-video.jpg"
+                    >
+
+                        <source
+                            src="videos/robotica.mp4"
+                            type="video/mp4"
+                        >
+
+                        Seu navegador não suporta a reprodução de vídeos.
+
+                    </video>
+
+                </div>
+
             </div>
+
+
+            <!-- FÍSICA -->
 
             <div class="card fisica">
 
@@ -648,6 +774,9 @@
                 </p>
 
             </div>
+
+
+            <!-- PROGRAMAÇÃO -->
 
             <div class="card programacao">
 
@@ -674,6 +803,9 @@
 
             </div>
 
+
+            <!-- PROJETO INTEGRADOR -->
+
             <div class="card integrador">
 
                 <div class="icone">💡</div>
@@ -698,6 +830,9 @@
 
     </section>
 
+
+    <!-- PROJETOS -->
+
     <section id="projetos">
 
         <div class="titulo">
@@ -711,6 +846,7 @@
             </p>
 
         </div>
+
 
         <div class="projetos">
 
@@ -727,6 +863,7 @@
 
             </div>
 
+
             <div class="projeto">
 
                 <span class="numero">PROJETO 02</span>
@@ -740,6 +877,7 @@
 
             </div>
 
+
             <div class="projeto">
 
                 <span class="numero">PROJETO 03</span>
@@ -752,6 +890,7 @@
                 </p>
 
             </div>
+
 
             <div class="projeto">
 
@@ -769,6 +908,9 @@
         </div>
 
     </section>
+
+
+    <!-- FINAL -->
 
     <section>
 
@@ -791,6 +933,9 @@
 
 </main>
 
+
+<!-- RODAPÉ -->
+
 <footer>
 
     <h3>🚀 Projeto Integrador</h3>
@@ -804,5 +949,8 @@
     </p>
 
 </footer>
+```
 
-</body> </html>
+</body>
+
+</html>
