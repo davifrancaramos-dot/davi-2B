@@ -3,1286 +3,1683 @@
 <html lang="pt-br">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Projeto Integrador | Nossa Turma</title>
+    <title>Projeto Integrador | Nossa Turma</title>
 
-<style>
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        scroll-behavior: smooth;
-    }
+    <style>
 
-    body {
-        font-family: "Segoe UI", Arial, sans-serif;
-        background: #070b17;
-        color: #f8fafc;
-        line-height: 1.7;
-        overflow-x: hidden;
-    }
-
-    ::selection {
-        background: #38bdf8;
-        color: #020617;
-    }
-
-    body::before {
-        content: "";
-        position: fixed;
-        width: 500px;
-        height: 500px;
-        background: #2563eb;
-        border-radius: 50%;
-        filter: blur(180px);
-        opacity: 0.18;
-        top: -150px;
-        left: -150px;
-        z-index: -1;
-    }
-
-    body::after {
-        content: "";
-        position: fixed;
-        width: 450px;
-        height: 450px;
-        background: #7c3aed;
-        border-radius: 50%;
-        filter: blur(180px);
-        opacity: 0.15;
-        bottom: -150px;
-        right: -150px;
-        z-index: -1;
-    }
-
-    /* =========================
-       CABEÇALHO
-    ========================= */
-
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 18px 7%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(7, 11, 23, 0.75);
-        backdrop-filter: blur(15px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        z-index: 1000;
-    }
-
-    .logo {
-        font-size: 21px;
-        font-weight: 800;
-    }
-
-    .logo span {
-        color: #38bdf8;
-    }
-
-    nav {
-        display: flex;
-        gap: 28px;
-    }
-
-    nav a {
-        color: #cbd5e1;
-        text-decoration: none;
-        font-size: 14px;
-        font-weight: 600;
-        transition: 0.3s;
-    }
-
-    nav a:hover {
-        color: #38bdf8;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 120px 20px 80px;
-        position: relative;
-    }
-
-    .hero-content {
-        max-width: 900px;
-        animation: aparecer 1.2s ease;
-    }
-
-    .tag {
-        display: inline-block;
-        padding: 8px 18px;
-        border-radius: 50px;
-        background: rgba(56, 189, 248, 0.1);
-        border: 1px solid rgba(56, 189, 248, 0.35);
-        color: #7dd3fc;
-        font-size: 14px;
-        font-weight: 600;
-        margin-bottom: 25px;
-    }
-
-    .hero h1 {
-        font-size: clamp(45px, 8vw, 85px);
-        line-height: 1.05;
-        font-weight: 900;
-        margin-bottom: 25px;
-
-        background: linear-gradient(
-            90deg,
-            #ffffff,
-            #7dd3fc,
-            #a78bfa
-        );
-
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-
-    .hero p {
-        max-width: 700px;
-        margin: auto;
-        color: #94a3b8;
-        font-size: 19px;
-    }
-
-    .botoes {
-        margin-top: 35px;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .botao {
-        display: inline-block;
-        padding: 14px 26px;
-        border-radius: 12px;
-        text-decoration: none;
-        font-weight: 700;
-        transition: 0.3s;
-    }
-
-    .botao-principal {
-        color: #020617;
-        background: linear-gradient(
-            135deg,
-            #38bdf8,
-            #818cf8
-        );
-
-        box-shadow:
-            0 0 30px rgba(56, 189, 248, 0.25);
-    }
-
-    .botao-principal:hover {
-        transform: translateY(-4px);
-
-        box-shadow:
-            0 0 40px rgba(56, 189, 248, 0.45);
-    }
-
-    .botao-secundario {
-        color: #e2e8f0;
-        border: 1px solid #334155;
-        background: rgba(255, 255, 255, 0.03);
-    }
-
-    .botao-secundario:hover {
-        border-color: #38bdf8;
-        color: #38bdf8;
-    }
-
-    /* =========================
-       CONTEÚDO
-    ========================= */
-
-    main {
-        max-width: 1150px;
-        margin: auto;
-        padding: 60px 25px;
-    }
-
-    section {
-        margin-bottom: 130px;
-        scroll-margin-top: 100px;
-    }
-
-    .titulo {
-        text-align: center;
-        margin-bottom: 50px;
-    }
-
-    .titulo small {
-        color: #38bdf8;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
-
-    .titulo h2 {
-        font-size: clamp(32px, 5vw, 48px);
-        margin-top: 8px;
-    }
-
-    .titulo p {
-        color: #94a3b8;
-        margin-top: 10px;
-    }
-
-    /* =========================
-       BIOGRAFIA
-    ========================= */
-
-    .bio {
-        padding: 45px;
-
-        background: linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.07),
-            rgba(255, 255, 255, 0.025)
-        );
-
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 25px;
-
-        backdrop-filter: blur(15px);
-
-        box-shadow:
-            0 20px 60px rgba(0, 0, 0, 0.25);
-    }
-
-    .bio p {
-        color: #cbd5e1;
-        margin-bottom: 18px;
-    }
-
-    .bio strong {
-        color: #7dd3fc;
-    }
-
-    /* =========================
-       FOTO DA TURMA
-    ========================= */
-
-    .imagem-turma {
-        display: block;
-        width: 100%;
-        max-height: 500px;
-        object-fit: cover;
-
-        border-radius: 18px;
-        margin-top: 25px;
-
-        border: 1px solid rgba(255, 255, 255, 0.1);
-
-        box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.3);
-
-        transition: 0.4s;
-    }
-
-    .imagem-turma:hover {
-        transform: scale(1.01);
-
-        border-color:
-            rgba(56, 189, 248, 0.4);
-    }
-
-    /* =========================
-       CARDS
-    ========================= */
-
-    .cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-
-    .card {
-        position: relative;
-        padding: 35px;
-
-        background: rgba(15, 23, 42, 0.72);
-
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 22px;
-
-        overflow: hidden;
-        transition: 0.4s;
-
-        backdrop-filter: blur(12px);
-    }
-
-    .card::before {
-        content: "";
-
-        position: absolute;
-
-        width: 150px;
-        height: 150px;
-
-        border-radius: 50%;
-
-        top: -80px;
-        right: -80px;
-
-        background: #38bdf8;
-
-        filter: blur(60px);
-        opacity: 0.15;
-    }
-
-    .card:hover {
-        transform: translateY(-10px);
-
-        border-color:
-            rgba(56, 189, 248, 0.4);
-
-        box-shadow:
-            0 20px 50px rgba(0, 0, 0, 0.35),
-            0 0 30px rgba(56, 189, 248, 0.08);
-    }
-
-    .icone {
-        width: 65px;
-        height: 65px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        font-size: 32px;
-
-        border-radius: 18px;
-
-        background:
-            rgba(56, 189, 248, 0.1);
-
-        border:
-            1px solid rgba(56, 189, 248, 0.2);
-
-        margin-bottom: 22px;
-    }
-
-    .card h3 {
-        font-size: 25px;
-        margin-bottom: 15px;
-    }
-
-    .card p {
-        color: #94a3b8;
-        margin-bottom: 14px;
-    }
-
-    .card strong {
-        color: #e2e8f0;
-    }
-
-    /* =========================
-       CORES DOS CARDS
-    ========================= */
-
-    .robotica {
-        border-top: 3px solid #f59e0b;
-    }
-
-    .robotica .icone {
-        background:
-            rgba(245, 158, 11, 0.1);
-    }
-
-    .fisica {
-        border-top: 3px solid #22c55e;
-    }
-
-    .fisica .icone {
-        background:
-            rgba(34, 197, 94, 0.1);
-    }
-
-    .programacao {
-        border-top: 3px solid #a78bfa;
-    }
-
-    .programacao .icone {
-        background:
-            rgba(167, 139, 250, 0.1);
-    }
-
-    .integrador {
-        border-top: 3px solid #38bdf8;
-    }
-
-    /* =========================
-       MÍDIA DA ROBÓTICA
-    ========================= */
-
-    .midia-robotica {
-        margin-top: 25px;
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 20px;
-    }
-
-    .imagem-robotica,
-    .video-robotica {
-        width: 100%;
-
-        border-radius: 18px;
-
-        border:
-            1px solid rgba(255, 255, 255, 0.1);
-
-        box-shadow:
-            0 15px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .imagem-robotica {
-        max-height: 350px;
-        object-fit: cover;
-    }
-
-    .video-robotica {
-        max-height: 400px;
-        background: #020617;
-    }
-
-    .imagem-robotica:hover {
-        border-color:
-            rgba(245, 158, 11, 0.5);
-    }
-
-    .video-robotica:focus {
-        outline: 2px solid #f59e0b;
-        outline-offset: 3px;
-    }
-
-    .legenda-video {
-        color: #94a3b8;
-        font-size: 14px;
-        margin-top: -10px;
-    }
-
-    /* =========================
-       PROJETOS
-    ========================= */
-
-    .projetos {
-        display: grid;
-
-        grid-template-columns:
-            repeat(4, 1fr);
-
-        gap: 18px;
-    }
-
-    .projeto {
-        min-height: 210px;
-
-        padding: 28px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-
-        border-radius: 22px;
-
-        background: linear-gradient(
-            145deg,
-            rgba(37, 99, 235, 0.25),
-            rgba(15, 23, 42, 0.8)
-        );
-
-        border:
-            1px solid rgba(255, 255, 255, 0.08);
-
-        transition: 0.4s;
-    }
-
-    .projeto:hover {
-        transform:
-            translateY(-8px) scale(1.02);
-
-        border-color:
-            rgba(56, 189, 248, 0.4);
-    }
-
-    .numero {
-        color: #38bdf8;
-        font-size: 13px;
-        font-weight: bold;
-
-        margin-bottom: auto;
-    }
-
-    .projeto h3 {
-        font-size: 20px;
-        margin-bottom: 8px;
-    }
-
-    .projeto p {
-        color: #94a3b8;
-        font-size: 14px;
-    }
-
-    /* =========================
-       FINAL
-    ========================= */
-
-    .final {
-        text-align: center;
-
-        padding: 70px 30px;
-
-        border-radius: 30px;
-
-        background: linear-gradient(
-            135deg,
-            rgba(37, 99, 235, 0.2),
-            rgba(124, 58, 237, 0.18)
-        );
-
-        border:
-            1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .final h2 {
-        font-size: 38px;
-        margin-bottom: 15px;
-    }
-
-    .final p {
-        max-width: 650px;
-        margin: auto;
-        color: #94a3b8;
-    }
-
-    /* =========================
-       RODAPÉ
-    ========================= */
-
-    footer {
-        border-top:
-            1px solid rgba(255, 255, 255, 0.08);
-
-        padding: 45px 20px;
-
-        text-align: center;
-
-        background: #040711;
-    }
-
-    footer h3 {
-        margin-bottom: 10px;
-    }
-
-    footer p {
-        color: #64748b;
-        font-size: 14px;
-    }
-
-    /* =========================
-       ANIMAÇÃO
-    ========================= */
-
-    @keyframes aparecer {
-
-        from {
-            opacity: 0;
-            transform: translateY(25px);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        to {
-            opacity: 1;
-            transform: translateY(0);
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #070b17;
+            color: #f8fafc;
+            line-height: 1.7;
+            overflow-x: hidden;
         }
 
-    }
+        ::selection {
+            background: #38bdf8;
+            color: #020617;
+        }
 
-    /* =========================
-       TABLET
-    ========================= */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            background: #2563eb;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.18;
+            top: -150px;
+            left: -150px;
+            z-index: -1;
+        }
 
-    @media (max-width: 850px) {
+        body::after {
+            content: "";
+            position: fixed;
+            width: 450px;
+            height: 450px;
+            background: #7c3aed;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0.15;
+            bottom: -150px;
+            right: -150px;
+            z-index: -1;
+        }
+
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
 
         header {
-            padding: 15px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(7, 11, 23, 0.75);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .logo span {
+            color: #38bdf8;
         }
 
         nav {
-            gap: 12px;
+            display: flex;
+            gap: 28px;
         }
 
         nav a {
-            font-size: 12px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
         }
 
-        .cards {
-            grid-template-columns: 1fr;
+        nav a:hover {
+            color: #38bdf8;
         }
 
-        .projetos {
-            grid-template-columns:
-                repeat(2, 1fr);
-        }
 
-        .bio {
-            padding: 28px;
-        }
-
-    }
-
-    /* =========================
-       CELULAR
-    ========================= */
-
-    @media (max-width: 550px) {
-
-        header {
-            position: absolute;
-
-            flex-direction: column;
-
-            gap: 12px;
-        }
-
-        nav {
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
-            padding-top: 150px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
         }
 
+        .hero-content {
+            max-width: 900px;
+            animation: aparecer 1.2s ease;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 50px;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            color: #7dd3fc;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            line-height: 1.05;
+            font-weight: 900;
+            margin-bottom: 25px;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #7dd3fc,
+                #a78bfa
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            color: #94a3b8;
+            font-size: 19px;
+        }
+
+        .botoes {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .botao {
+            display: inline-block;
+            padding: 14px 26px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .botao-principal {
+            color: #020617;
+
+            background: linear-gradient(
+                135deg,
+                #38bdf8,
+                #818cf8
+            );
+
+            box-shadow:
+                0 0 30px rgba(56, 189, 248, 0.25);
+        }
+
+        .botao-principal:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 0 40px rgba(56, 189, 248, 0.45);
+        }
+
+        .botao-secundario {
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .botao-secundario:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+
+        /* =========================
+           CONTEÚDO
+        ========================= */
+
+        main {
+            max-width: 1150px;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        section {
+            margin-bottom: 130px;
+            scroll-margin-top: 100px;
+        }
+
+        .titulo {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo small {
+            color: #38bdf8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .titulo h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            margin-top: 8px;
+        }
+
+        .titulo p {
+            color: #94a3b8;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           BIOGRAFIA
+        ========================= */
+
+        .bio {
+            padding: 45px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(255, 255, 255, 0.07),
+                rgba(255, 255, 255, 0.025)
+            );
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+
+            backdrop-filter: blur(15px);
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.25);
+        }
+
+        .bio p {
+            color: #cbd5e1;
+            margin-bottom: 18px;
+        }
+
+        .bio strong {
+            color: #7dd3fc;
+        }
+
+
+        /* =========================
+           FOTO DA TURMA
+        ========================= */
+
+        .imagem-turma {
+            display: block;
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+
+            border-radius: 18px;
+            margin-top: 25px;
+
+            border: 1px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.3);
+
+            transition: 0.4s;
+        }
+
+        .imagem-turma:hover {
+            transform: scale(1.01);
+
+            border-color:
+                rgba(56, 189, 248, 0.4);
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            position: relative;
+            padding: 35px;
+
+            background: rgba(15, 23, 42, 0.72);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 22px;
+
+            overflow: hidden;
+            transition: 0.4s;
+
+            backdrop-filter: blur(12px);
+        }
+
+        .card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            border-radius: 50%;
+
+            top: -80px;
+            right: -80px;
+
+            background: #38bdf8;
+
+            filter: blur(60px);
+            opacity: 0.15;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+
+            border-color:
+                rgba(56, 189, 248, 0.4);
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.35),
+                0 0 30px rgba(56, 189, 248, 0.08);
+        }
+
+        .icone {
+            width: 65px;
+            height: 65px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 32px;
+
+            border-radius: 18px;
+
+            background:
+                rgba(56, 189, 248, 0.1);
+
+            border:
+                1px solid rgba(56, 189, 248, 0.2);
+
+            margin-bottom: 22px;
+        }
+
+        .card h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            margin-bottom: 14px;
+        }
+
+        .card strong {
+            color: #e2e8f0;
+        }
+
+
+        /* =========================
+           CORES DOS CARDS
+        ========================= */
+
+        .robotica {
+            border-top: 3px solid #f59e0b;
+        }
+
+        .robotica .icone {
+            background:
+                rgba(245, 158, 11, 0.1);
+        }
+
+        .fisica {
+            border-top: 3px solid #22c55e;
+        }
+
+        .fisica .icone {
+            background:
+                rgba(34, 197, 94, 0.1);
+        }
+
+        .programacao {
+            border-top: 3px solid #a78bfa;
+        }
+
+        .programacao .icone {
+            background:
+                rgba(167, 139, 250, 0.1);
+        }
+
+        .integrador {
+            border-top: 3px solid #38bdf8;
+        }
+
+
+        /* =========================
+           MÍDIA DA ROBÓTICA
+        ========================= */
+
+        .midia-robotica {
+            margin-top: 25px;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 20px;
+        }
+
+        .imagem-robotica,
+        .video-robotica {
+            width: 100%;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .imagem-robotica {
+            max-height: 350px;
+            object-fit: cover;
+        }
+
+        .video-robotica {
+            max-height: 400px;
+            background: #020617;
+        }
+
+        .imagem-robotica:hover {
+            border-color:
+                rgba(245, 158, 11, 0.5);
+        }
+
+        .video-robotica:focus {
+            outline: 2px solid #f59e0b;
+            outline-offset: 3px;
+        }
+
+        .legenda-video {
+            color: #94a3b8;
+            font-size: 14px;
+            margin-top: -10px;
+        }
+
+
+        /* =========================
+           SLIDE DE FÍSICA
+        ========================= */
+
+        .slider-fisica {
+            position: relative;
+
+            width: 100%;
+
+            margin-top: 30px;
+
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
+
+            background: #020617;
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .slides-fisica {
+            position: relative;
+
+            width: 100%;
+
+            height: 350px;
+        }
+
+        .slide-fisica {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 0;
+
+            transition:
+                opacity 0.5s ease;
+        }
+
+        .slide-fisica.ativo {
+            opacity: 1;
+        }
+
+
+        /* =========================
+           SETAS DO SLIDE
+        ========================= */
+
+        .seta-fisica {
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(2, 6, 23, 0.75);
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.3s;
+
+            z-index: 5;
+        }
+
+        .seta-fisica:hover {
+            background: #22c55e;
+
+            transform:
+                translateY(-50%)
+                scale(1.1);
+        }
+
+        .seta-fisica.anterior {
+            left: 15px;
+        }
+
+        .seta-fisica.proximo {
+            right: 15px;
+        }
+
+
+        /* =========================
+           INDICADORES
+        ========================= */
+
+        .indicadores-fisica {
+            position: absolute;
+
+            bottom: 15px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            display: flex;
+
+            gap: 8px;
+
+            z-index: 5;
+        }
+
+        .indicador-fisica {
+            width: 10px;
+            height: 10px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.4);
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .indicador-fisica.ativo {
+            width: 25px;
+
+            border-radius: 10px;
+
+            background: #22c55e;
+        }
+
+
+        /* =========================
+           PROJETOS
+        ========================= */
+
         .projetos {
-            grid-template-columns: 1fr;
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 18px;
+        }
+
+        .projeto {
+            min-height: 210px;
+
+            padding: 28px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+
+            border-radius: 22px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(37, 99, 235, 0.25),
+                rgba(15, 23, 42, 0.8)
+            );
+
+            border:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            transition: 0.4s;
+        }
+
+        .projeto:hover {
+            transform:
+                translateY(-8px)
+                scale(1.02);
+
+            border-color:
+                rgba(56, 189, 248, 0.4);
+        }
+
+        .numero {
+            color: #38bdf8;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: auto;
+        }
+
+        .projeto h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .projeto p {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FINAL
+        ========================= */
+
+        .final {
+            text-align: center;
+
+            padding: 70px 30px;
+
+            border-radius: 30px;
+
+            background: linear-gradient(
+                135deg,
+                rgba(37, 99, 235, 0.2),
+                rgba(124, 58, 237, 0.18)
+            );
+
+            border:
+                1px solid rgba(255, 255, 255, 0.1);
         }
 
         .final h2 {
-            font-size: 30px;
+            font-size: 38px;
+            margin-bottom: 15px;
         }
 
-        .imagem-turma,
-        .imagem-robotica,
-        .video-robotica {
-            max-height: none;
+        .final p {
+            max-width: 650px;
+            margin: auto;
+            color: #94a3b8;
         }
 
-    }
 
-</style>
-```
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            border-top:
+                1px solid rgba(255, 255, 255, 0.08);
+
+            padding: 45px 20px;
+
+            text-align: center;
+
+            background: #040711;
+        }
+
+        footer h3 {
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           ANIMAÇÃO
+        ========================= */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            header {
+                padding: 15px 20px;
+            }
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .projetos {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .bio {
+                padding: 28px;
+            }
+
+        }
+
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 550px) {
+
+            header {
+                position: absolute;
+
+                flex-direction: column;
+
+                gap: 12px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .projetos {
+                grid-template-columns: 1fr;
+            }
+
+            .final h2 {
+                font-size: 30px;
+            }
+
+            .imagem-turma,
+            .imagem-robotica,
+            .video-robotica {
+                max-height: none;
+            }
+
+            .slides-fisica {
+                height: 260px;
+            }
+
+            .seta-fisica {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
-
-```
-<!-- =========================
-     CABEÇALHO
-========================= -->
-
-<header>
-
-    <div class="logo">
-        🚀 <span>Projeto</span> Integrador
-    </div>
-
-    <nav>
-
-        <a href="#inicio">
-            Início
-        </a>
-
-        <a href="#turma">
-            Turma
-        </a>
-
-        <a href="#disciplinas">
-            Disciplinas
-        </a>
-
-        <a href="#projetos">
-            Projetos
-        </a>
-
-    </nav>
-
-</header>
-
-
-<!-- =========================
-     INÍCIO
-========================= -->
-
-<section
-    class="hero"
-    id="inicio"
->
-
-    <div class="hero-content">
-
-        <span class="tag">
-            ✨ PORTFÓLIO DO 2º TRIMESTRE
-        </span>
-
-        <h1>
-            Aprender.<br>
-            Criar.<br>
-            Evoluir.
-        </h1>
-
-        <p>
-            Uma jornada de descobertas, tecnologia,
-            criatividade e trabalho em equipe
-            através do Projeto Integrador.
-        </p>
-
-        <div class="botoes">
-
-            <a
-                href="#disciplinas"
-                class="botao botao-principal"
-            >
-                Explorar projeto ↓
-            </a>
-
-            <a
-                href="#projetos"
-                class="botao botao-secundario"
-            >
-                Ver projetos
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<main>
 
 
     <!-- =========================
-         NOSSA TURMA
+         CABEÇALHO
     ========================= -->
 
-    <section id="turma">
+    <header>
 
-        <div class="titulo">
-
-            <small>
-                01 • Nossa história
-            </small>
-
-            <h2>
-                🌟 Nossa Turma
-            </h2>
-
-            <p>
-                Diferentes pessoas, uma mesma jornada.
-            </p>
-
+        <div class="logo">
+            🚀 <span>Projeto</span> Integrador
         </div>
 
+        <nav>
 
-        <div class="bio">
+            <a href="#inicio">
+                Início
+            </a>
 
-            <p>
-                Somos uma turma formada por estudantes
-                com diferentes personalidades, ideias,
-                talentos e formas de enxergar o mundo.
-                Mesmo com nossas diferenças, aprendemos
-                que, quando trabalhamos juntos, conseguimos
-                transformar desafios em oportunidades
-                e ideias em grandes projetos.
-            </p>
+            <a href="#turma">
+                Turma
+            </a>
 
-            <p>
-                Ao longo do ano, vivenciamos momentos de
-                <strong>
-                    aprendizado, descobertas, criatividade
-                    e muita colaboração
-                </strong>.
-                Nas aulas de
-                <strong>
-                    Robótica, Física, Tecnociência
-                    e Programação
-                </strong>,
-                tivemos a oportunidade de colocar nossos
-                conhecimentos em prática, experimentar
-                novas possibilidades e aprender com nossos
-                próprios erros e acertos.
-            </p>
+            <a href="#disciplinas">
+                Disciplinas
+            </a>
 
-            <p>
-                Cada projeto, trabalho e desafio contribuiu
-                para o crescimento da turma, fortalecendo
-                nossa capacidade de
-                <strong>
-                    trabalhar em equipe, solucionar problemas
-                    e pensar de forma criativa.
-                </strong>
-            </p>
+            <a href="#projetos">
+                Projetos
+            </a>
 
-            <p>
-                Este portfólio representa um pouco dessa
-                caminhada. Aqui estão registrados nossos
-                projetos, experiências e conquistas,
-                mostrando não apenas aquilo que fizemos,
-                mas também
-                <strong>
-                    tudo o que aprendemos durante o processo.
-                </strong>
-            </p>
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         INÍCIO
+    ========================= -->
+
+    <section
+        class="hero"
+        id="inicio"
+    >
+
+        <div class="hero-content">
+
+            <span class="tag">
+                ✨ PORTFÓLIO DO 2º TRIMESTRE
+            </span>
+
+            <h1>
+                Aprender.<br>
+                Criar.<br>
+                Evoluir.
+            </h1>
 
             <p>
-                Somos uma turma que aprende, cria, erra,
-                tenta novamente e evolui. E essa é apenas
-                mais uma parte da nossa história. 🚀
+                Uma jornada de descobertas, tecnologia,
+                criatividade e trabalho em equipe
+                através do Projeto Integrador.
             </p>
 
+            <div class="botoes">
 
-            <!-- =========================
-                 FOTO DA TURMA
-            ========================= -->
+                <a
+                    href="#disciplinas"
+                    class="botao botao-principal"
+                >
+                    Explorar projeto ↓
+                </a>
 
-            <img
-                src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/WhatsApp%20Image%202026-09-10%20at%2007.51.25.jpeg"
-                alt="Foto da nossa turma"
-                class="imagem-turma"
-            >
+                <a
+                    href="#projetos"
+                    class="botao botao-secundario"
+                >
+                    Ver projetos
+                </a>
+
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- =========================
-         DISCIPLINAS
-    ========================= -->
-
-    <section id="disciplinas">
-
-        <div class="titulo">
-
-            <small>
-                02 • Conhecimento
-            </small>
-
-            <h2>
-                📚 Nossas Disciplinas
-            </h2>
-
-            <p>
-                Quatro áreas conectadas por um único projeto.
-            </p>
-
-        </div>
+    <main>
 
 
-        <div class="cards">
+        <!-- =========================
+             NOSSA TURMA
+        ========================= -->
 
+        <section id="turma">
 
-            <!-- =========================
-                 ROBÓTICA
-            ========================= -->
+            <div class="titulo">
 
-            <div class="card robotica">
+                <small>
+                    01 • Nossa história
+                </small>
 
-                <div class="icone">
-                    🤖
-                </div>
-
-                <h3>
-                    Robótica
-                </h3>
+                <h2>
+                    🌟 Nossa Turma
+                </h2>
 
                 <p>
-                    Transformamos conhecimentos em projetos
-                    práticos, criando e testando diferentes
-                    <strong>
-                        protótipos e circuitos.
-                    </strong>
+                    Diferentes pessoas, uma mesma jornada.
                 </p>
-
-                <p>
-                    Desenvolvemos o
-                    <strong>
-                        Disco de Newton
-                    </strong>,
-                    <strong>
-                        LED Fade-in e Fade-out
-                    </strong>,
-                    <strong>
-                        LED RGB
-                    </strong>
-                    e um
-                    <strong>
-                        semáforo de cruzamento para carros.
-                    </strong>
-                </p>
-
-                <p>
-                    Também trabalhamos com sensores de
-                    presença, gás e fumaça.
-                </p>
-
-                <p>
-                    Nosso próximo desafio é construir um
-                    <strong>
-                        robô seguidor de linha.
-                    </strong>
-                    🚀
-                </p>
-
-
-                <!-- =========================
-                     VÍDEOS DA ROBÓTICA
-                ========================= -->
-
-                <div class="midia-robotica">
-
-
-                    <!-- VÍDEO DISCO DE NEWTON -->
-
-                    <video
-                        class="video-robotica"
-                        controls
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/WhatsApp%20Video%202026-09-11%20at%2010.07.13.mp4"
-                            type="video/mp4"
-                        >
-
-                        Seu navegador não suporta
-                        a reprodução de vídeos.
-
-                    </video>
-
-                    <p class="legenda-video">
-                        🌈 Vídeo do projeto Disco de Newton.
-                    </p>
-
-
-                    <!-- VÍDEO SENSOR DE FUMAÇA -->
-
-                    <video
-                        class="video-robotica"
-                        controls
-                        preload="metadata"
-                    >
-
-                        <source
-                            src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/VID-20260821-WA0025.mp4"
-                            type="video/mp4"
-                        >
-
-                        Seu navegador não suporta
-                        a reprodução de vídeos.
-
-                    </video>
-
-                    <p class="legenda-video">
-                        🚨 Vídeo do sensor de fumaça.
-                    </p>
-
-                </div>
 
             </div>
 
 
-            <!-- =========================
-     FÍSICA
-========================= -->
-
-<div class="card fisica">
-
-    <div class="icone">
-        🔬
-    </div>
-
-    <h3>
-        Física e Tecnociência
-    </h3>
-
-    <p>
-        Relacionamos conhecimentos científicos
-        com situações práticas do nosso cotidiano.
-    </p>
-
-    <p>
-        Aprendemos a observar fenômenos,
-        levantar hipóteses, realizar testes
-        e analisar resultados.
-    </p>
-
-    <p>
-        Durante nossos estudos, também aprendemos
-        sobre a <strong>luz e as cores</strong>, compreendendo
-        como a luz branca é formada por diferentes cores
-        e como podemos observar esse fenômeno através
-        da <strong>dispersão da luz</strong>.
-    </p>
-
-    <p>
-        Estudamos também fenômenos como
-        <strong>reflexão e refração</strong>, percebendo
-        como a luz se comporta ao encontrar diferentes
-        superfícies e materiais.
-    </p>
-
-    <p>
-        Outro conteúdo trabalhado foram as
-        <strong>lentes</strong>. Aprendemos que elas podem
-        modificar a trajetória da luz e formar imagens.
-        As lentes estão presentes em objetos como
-        <strong>óculos, lupas, câmeras, microscópios
-        e telescópios</strong>.
-    </p>
-
-    <p>
-        Também estudamos a importância dos
-        <strong>recursos assistivos</strong>, que utilizam
-        conhecimentos científicos e tecnológicos para
-        facilitar a vida e aumentar a autonomia das pessoas.
-    </p>
-
-    <p>
-        Conhecemos exemplos como
-        <strong>lentes corretivas, lupas eletrônicas,
-        ampliadores, leitores de tela e dispositivos
-        de acessibilidade</strong>.
-    </p>
-
-    <p>
-        Esses estudos mostraram que a Física está
-        presente em diversas tecnologias e pode ser
-        utilizada para desenvolver soluções que
-        contribuem para a <strong>acessibilidade,
-        inclusão e qualidade de vida</strong>.
-    </p>
-
-    <p>
-        A união entre ciência e tecnologia mostrou
-        como conceitos científicos podem ser
-        aplicados na criação de projetos tecnológicos,
-        conectando o que aprendemos em sala de aula
-        com situações do mundo real.
-    </p>
-
-</div>
-
-
-
-            <!-- =========================
-                 PROJETO INTEGRADOR
-            ========================= -->
-
-            <div class="card integrador">
-
-                <div class="icone">
-                    💡
-                </div>
-
-                <h3>
-                    Projeto Integrador
-                </h3>
+            <div class="bio">
 
                 <p>
-                    Reunimos conhecimentos de
+                    Somos uma turma formada por estudantes
+                    com diferentes personalidades, ideias,
+                    talentos e formas de enxergar o mundo.
+                    Mesmo com nossas diferenças, aprendemos
+                    que, quando trabalhamos juntos, conseguimos
+                    transformar desafios em oportunidades
+                    e ideias em grandes projetos.
+                </p>
+
+                <p>
+                    Ao longo do ano, vivenciamos momentos de
+                    <strong>
+                        aprendizado, descobertas, criatividade
+                        e muita colaboração
+                    </strong>.
+                    Nas aulas de
                     <strong>
                         Robótica, Física, Tecnociência
                         e Programação
+                    </strong>,
+                    tivemos a oportunidade de colocar nossos
+                    conhecimentos em prática, experimentar
+                    novas possibilidades e aprender com nossos
+                    próprios erros e acertos.
+                </p>
+
+                <p>
+                    Cada projeto, trabalho e desafio contribuiu
+                    para o crescimento da turma, fortalecendo
+                    nossa capacidade de
+                    <strong>
+                        trabalhar em equipe, solucionar problemas
+                        e pensar de forma criativa.
                     </strong>
-                    em uma única experiência.
                 </p>
 
                 <p>
-                    Nosso objetivo é transformar conhecimento
-                    em criação, trabalhando em equipe e
-                    desenvolvendo soluções criativas para
-                    diferentes desafios.
+                    Este portfólio representa um pouco dessa
+                    caminhada. Aqui estão registrados nossos
+                    projetos, experiências e conquistas,
+                    mostrando não apenas aquilo que fizemos,
+                    mas também
+                    <strong>
+                        tudo o que aprendemos durante o processo.
+                    </strong>
+                </p>
+
+                <p>
+                    Somos uma turma que aprende, cria, erra,
+                    tenta novamente e evolui. E essa é apenas
+                    mais uma parte da nossa história. 🚀
+                </p>
+
+
+                <img
+                    src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/WhatsApp%20Image%202026-09-10%20at%2007.51.25.jpeg"
+                    alt="Foto da nossa turma"
+                    class="imagem-turma"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             DISCIPLINAS
+        ========================= -->
+
+        <section id="disciplinas">
+
+            <div class="titulo">
+
+                <small>
+                    02 • Conhecimento
+                </small>
+
+                <h2>
+                    📚 Nossas Disciplinas
+                </h2>
+
+                <p>
+                    Quatro áreas conectadas por um único projeto.
                 </p>
 
             </div>
 
-        </div>
 
-    </section>
+            <div class="cards">
+
+
+                <!-- =========================
+                     ROBÓTICA
+                ========================= -->
+
+                <div class="card robotica">
+
+                    <div class="icone">
+                        🤖
+                    </div>
+
+                    <h3>
+                        Robótica
+                    </h3>
+
+                    <p>
+                        Transformamos conhecimentos em projetos
+                        práticos, criando e testando diferentes
+                        <strong>
+                            protótipos e circuitos.
+                        </strong>
+                    </p>
+
+                    <p>
+                        Desenvolvemos o
+                        <strong>
+                            Disco de Newton
+                        </strong>,
+                        <strong>
+                            LED Fade-in e Fade-out
+                        </strong>,
+                        <strong>
+                            LED RGB
+                        </strong>
+                        e um
+                        <strong>
+                            semáforo de cruzamento para carros.
+                        </strong>
+                    </p>
+
+                    <p>
+                        Também trabalhamos com sensores de
+                        presença, gás e fumaça.
+                    </p>
+
+                    <p>
+                        Nosso próximo desafio é construir um
+                        <strong>
+                            robô seguidor de linha.
+                        </strong>
+                        🚀
+                    </p>
+
+
+                    <div class="midia-robotica">
+
+
+                        <video
+                            class="video-robotica"
+                            controls
+                            preload="metadata"
+                        >
+
+                            <source
+                                src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/WhatsApp%20Video%202026-09-11%20at%2010.07.13.mp4"
+                                type="video/mp4"
+                            >
+
+                            Seu navegador não suporta
+                            a reprodução de vídeos.
+
+                        </video>
+
+                        <p class="legenda-video">
+                            🌈 Vídeo do projeto Disco de Newton.
+                        </p>
+
+
+                        <video
+                            class="video-robotica"
+                            controls
+                            preload="metadata"
+                        >
+
+                            <source
+                                src="https://raw.githubusercontent.com/davifrancaramos-dot/davi-2B/main/VID-20260821-WA0025.mp4"
+                                type="video/mp4"
+                            >
+
+                            Seu navegador não suporta
+                            a reprodução de vídeos.
+
+                        </video>
+
+                        <p class="legenda-video">
+                            🚨 Vídeo do sensor de fumaça.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     FÍSICA
+                ========================= -->
+
+                <div class="card fisica">
+
+                    <div class="icone">
+                        🔬
+                    </div>
+
+                    <h3>
+                        Física e Tecnociência
+                    </h3>
+
+                    <p>
+                        Relacionamos conhecimentos científicos
+                        com situações práticas do nosso cotidiano.
+                    </p>
+
+                    <p>
+                        Aprendemos a observar fenômenos,
+                        levantar hipóteses, realizar testes
+                        e analisar resultados.
+                    </p>
+
+                    <p>
+                        Durante nossos estudos, também aprendemos
+                        sobre a <strong>luz e as cores</strong>,
+                        compreendendo como a luz branca é formada
+                        por diferentes cores e como podemos observar
+                        esse fenômeno através da
+                        <strong>dispersão da luz</strong>.
+                    </p>
+
+                    <p>
+                        Estudamos também fenômenos como
+                        <strong>reflexão e refração</strong>,
+                        percebendo como a luz se comporta ao
+                        encontrar diferentes superfícies e materiais.
+                    </p>
+
+                    <p>
+                        Outro conteúdo trabalhado foram as
+                        <strong>lentes</strong>. Aprendemos que elas
+                        podem modificar a trajetória da luz e formar
+                        imagens. As lentes estão presentes em objetos
+                        como <strong>óculos, lupas, câmeras,
+                        microscópios e telescópios</strong>.
+                    </p>
+
+                    <p>
+                        Também estudamos a importância dos
+                        <strong>recursos assistivos</strong>, que
+                        utilizam conhecimentos científicos e
+                        tecnológicos para facilitar a vida e
+                        aumentar a autonomia das pessoas.
+                    </p>
+
+                    <p>
+                        Conhecemos exemplos como
+                        <strong>lentes corretivas, lupas eletrônicas,
+                        ampliadores, leitores de tela e dispositivos
+                        de acessibilidade</strong>.
+                    </p>
+
+                    <p>
+                        Esses estudos mostraram que a Física está
+                        presente em diversas tecnologias e pode ser
+                        utilizada para desenvolver soluções que
+                        contribuem para a <strong>acessibilidade,
+                        inclusão e qualidade de vida</strong>.
+                    </p>
+
+                    <p>
+                        A união entre ciência e tecnologia mostrou
+                        como conceitos científicos podem ser
+                        aplicados na criação de projetos tecnológicos,
+                        conectando o que aprendemos em sala de aula
+                        com situações do mundo real.
+                    </p>
+
+
+                    <!-- =========================
+                         SLIDE DE FÍSICA
+                    ========================= -->
+
+                    <div class="slider-fisica">
+
+                        <div class="slides-fisica">
+
+
+                            <!-- IMAGEM 1 -->
+
+                            <img
+                                src="IMAGEM-1.jpg"
+                                alt="Experimento de Física 1"
+                                class="slide-fisica ativo"
+                            >
+
+
+                            <!-- IMAGEM 2 -->
+
+                            <img
+                                src="IMAGEM-2.jpg"
+                                alt="Experimento de Física 2"
+                                class="slide-fisica"
+                            >
+
+
+                            <!-- IMAGEM 3 -->
+
+                            <img
+                                src="IMAGEM-3.jpg"
+                                alt="Experimento de Física 3"
+                                class="slide-fisica"
+                            >
+
+
+                            <!-- IMAGEM 4 -->
+
+                            <img
+                                src="IMAGEM-4.jpg"
+                                alt="Experimento de Física 4"
+                                class="slide-fisica"
+                            >
+
+
+                            <!-- IMAGEM 5 -->
+
+                            <img
+                                src="IMAGEM-5.jpg"
+                                alt="Experimento de Física 5"
+                                class="slide-fisica"
+                            >
+
+
+                            <!-- IMAGEM 6 -->
+
+                            <img
+                                src="IMAGEM-6.jpg"
+                                alt="Experimento de Física 6"
+                                class="slide-fisica"
+                            >
+
+
+                            <!-- IMAGEM 7 -->
+
+                            <img
+                                src="IMAGEM-7.jpg"
+                                alt="Experimento de Física 7"
+                                class="slide-fisica"
+                            >
+
+                        </div>
+
+
+                        <!-- SETA ANTERIOR -->
+
+                        <button
+                            class="seta-fisica anterior"
+                            onclick="mudarSlideFisica(-1)"
+                            aria-label="Imagem anterior"
+                        >
+                            ❮
+                        </button>
+
+
+                        <!-- SETA PRÓXIMA -->
+
+                        <button
+                            class="seta-fisica proximo"
+                            onclick="mudarSlideFisica(1)"
+                            aria-label="Próxima imagem"
+                        >
+                            ❯
+                        </button>
+
+
+                        <!-- INDICADORES -->
+
+                        <div class="indicadores-fisica">
+
+                            <span
+                                class="indicador-fisica ativo"
+                                onclick="irParaSlideFisica(0)"
+                            ></span>
+
+                            <span
+                                class="indicador-fisica"
+                                onclick="irParaSlideFisica(1)"
+                            ></span>
+
+                            <span
+                                class="indicador-fisica"
+                                onclick="irParaSlideFisica(2)"
+                            ></span>
+
+                            <span
+                                class="indicador-fisica"
+                                onclick="irParaSlideFisica(3)"
+                            ></span>
+
+                            <span
+                                class="indicador-fisica"
+                                onclick="irParaSlideFisica(4)"
+                            ></span>
+
+                            <span
+                                class="indicador-fisica"
+                                onclick="irParaSlideFisica(5)"
+                            ></span>
+
+                            <span
+                                class="indicador-fisica"
+                                onclick="irParaSlideFisica(6)"
+                            ></span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     PROJETO INTEGRADOR
+                ========================= -->
+
+                <div class="card integrador">
+
+                    <div class="icone">
+                        💡
+                    </div>
+
+                    <h3>
+                        Projeto Integrador
+                    </h3>
+
+                    <p>
+                        Reunimos conhecimentos de
+                        <strong>
+                            Robótica, Física, Tecnociência
+                            e Programação
+                        </strong>
+                        em uma única experiência.
+                    </p>
+
+                    <p>
+                        Nosso objetivo é transformar conhecimento
+                        em criação, trabalhando em equipe e
+                        desenvolvendo soluções criativas para
+                        diferentes desafios.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJETOS
+        ========================= -->
+
+        <section id="projetos">
+
+            <div class="titulo">
+
+                <small>
+                    03 • Mão na massa
+                </small>
+
+                <h2>
+                    ⚙️ Nossos Projetos
+                </h2>
+
+                <p>
+                    Ideias que saíram do papel e ganharam vida.
+                </p>
+
+            </div>
+
+
+            <div class="projetos">
+
+
+                <div class="projeto">
+
+                    <span class="numero">
+                        PROJETO 01
+                    </span>
+
+                    <h3>
+                        🌈 Disco de Newton
+                    </h3>
+
+                    <p>
+                        Uma experiência para compreender
+                        a mistura das cores.
+                    </p>
+
+                </div>
+
+
+                <div class="projeto">
+
+                    <span class="numero">
+                        PROJETO 02
+                    </span>
+
+                    <h3>
+                        💡 LED RGB
+                    </h3>
+
+                    <p>
+                        Exploração das diferentes combinações
+                        de cores utilizando LEDs.
+                    </p>
+
+                </div>
+
+
+                <div class="projeto">
+
+                    <span class="numero">
+                        PROJETO 03
+                    </span>
+
+                    <h3>
+                        🚦 Semáforo
+                    </h3>
+
+                    <p>
+                        Simulação de um sistema de trânsito
+                        utilizando programação e eletrônica.
+                    </p>
+
+                </div>
+
+
+                <div class="projeto">
+
+                    <span class="numero">
+                        PROJETO 04
+                    </span>
+
+                    <h3>
+                        🤖 Robô
+                    </h3>
+
+                    <p>
+                        Próximo desafio envolvendo sensores,
+                        programação e automação.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MENSAGEM FINAL
+        ========================= -->
+
+        <section>
+
+            <div class="final">
+
+                <h2>
+                    🚀 E essa é só uma parte
+                    da nossa história.
+                </h2>
+
+                <p>
+                    Cada erro nos ensinou algo novo.
+                    Cada desafio nos fez evoluir.
+                    E cada projeto mostrou que,
+                    quando trabalhamos juntos,
+                    podemos transformar ideias em realidade.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
 
 
     <!-- =========================
-         PROJETOS
+         RODAPÉ
     ========================= -->
 
-    <section id="projetos">
+    <footer>
 
-        <div class="titulo">
+        <h3>
+            🚀 Projeto Integrador
+        </h3>
 
-            <small>
-                03 • Mão na massa
-            </small>
+        <p>
+            Robótica • Física • Tecnociência • Programação
+        </p>
 
-            <h2>
-                ⚙️ Nossos Projetos
-            </h2>
+        <p>
+            © 2026 — Portfólio da nossa turma
+        </p>
 
-            <p>
-                Ideias que saíram do papel e ganharam vida.
-            </p>
-
-        </div>
-
-
-        <div class="projetos">
-
-
-            <div class="projeto">
-
-                <span class="numero">
-                    PROJETO 01
-                </span>
-
-                <h3>
-                    🌈 Disco de Newton
-                </h3>
-
-                <p>
-                    Uma experiência para compreender
-                    a mistura das cores.
-                </p>
-
-            </div>
-
-
-            <div class="projeto">
-
-                <span class="numero">
-                    PROJETO 02
-                </span>
-
-                <h3>
-                    💡 LED RGB
-                </h3>
-
-                <p>
-                    Exploração das diferentes combinações
-                    de cores utilizando LEDs.
-                </p>
-
-            </div>
-
-
-            <div class="projeto">
-
-                <span class="numero">
-                    PROJETO 03
-                </span>
-
-                <h3>
-                    🚦 Semáforo
-                </h3>
-
-                <p>
-                    Simulação de um sistema de trânsito
-                    utilizando programação e eletrônica.
-                </p>
-
-            </div>
-
-
-            <div class="projeto">
-
-                <span class="numero">
-                    PROJETO 04
-                </span>
-
-                <h3>
-                    🤖 Robô
-                </h3>
-
-                <p>
-                    Próximo desafio envolvendo sensores,
-                    programação e automação.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+    </footer>
 
 
     <!-- =========================
-         MENSAGEM FINAL
+         JAVASCRIPT DO SLIDE
     ========================= -->
 
-    <section>
+    <script>
 
-        <div class="final">
+        let slideAtualFisica = 0;
 
-            <h2>
-                🚀 E essa é só uma parte
-                da nossa história.
-            </h2>
+        const slidesFisica =
+            document.querySelectorAll(".slide-fisica");
 
-            <p>
-                Cada erro nos ensinou algo novo.
-                Cada desafio nos fez evoluir.
-                E cada projeto mostrou que,
-                quando trabalhamos juntos,
-                podemos transformar ideias em realidade.
-            </p>
-
-        </div>
-
-    </section>
-
-</main>
+        const indicadoresFisica =
+            document.querySelectorAll(".indicador-fisica");
 
 
-<!-- =========================
-     RODAPÉ
-========================= -->
+        function mostrarSlideFisica(numero) {
 
-<footer>
+            slidesFisica.forEach((slide) => {
 
-    <h3>
-        🚀 Projeto Integrador
-    </h3>
+                slide.classList.remove("ativo");
 
-    <p>
-        Robótica • Física • Tecnociência • Programação
-    </p>
+            });
 
-    <p>
-        © 2026 — Portfólio da nossa turma
-    </p>
 
-</footer>
-```
+            indicadoresFisica.forEach((indicador) => {
+
+                indicador.classList.remove("ativo");
+
+            });
+
+
+            slidesFisica[numero].classList.add("ativo");
+
+            indicadoresFisica[numero].classList.add("ativo");
+
+            slideAtualFisica = numero;
+
+        }
+
+
+        function mudarSlideFisica(direcao) {
+
+            slideAtualFisica += direcao;
+
+
+            if (slideAtualFisica >= slidesFisica.length) {
+
+                slideAtualFisica = 0;
+
+            }
+
+
+            if (slideAtualFisica < 0) {
+
+                slideAtualFisica =
+                    slidesFisica.length - 1;
+
+            }
+
+
+            mostrarSlideFisica(slideAtualFisica);
+
+        }
+
+
+        function irParaSlideFisica(numero) {
+
+            mostrarSlideFisica(numero);
+
+        }
+
+
+        /* =========================
+           TROCA AUTOMÁTICA
+           A CADA 5 SEGUNDOS
+        ========================= */
+
+        setInterval(() => {
+
+            mudarSlideFisica(1);
+
+        }, 5000);
+
+    </script>
+
 
 </body>
 
