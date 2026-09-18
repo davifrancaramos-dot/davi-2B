@@ -538,10 +538,185 @@
 
             transition:
                 opacity 0.5s ease;
+
+            cursor: pointer;
         }
 
         .slide-fisica.ativo {
             opacity: 1;
+        }
+
+
+        /* =========================
+           BOTÃO EXPANDIR
+        ========================= */
+
+        .botao-expandir-fisica {
+            position: absolute;
+
+            top: 15px;
+            right: 15px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                rgba(2, 6, 23, 0.8);
+
+            color: white;
+
+            font-size: 22px;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            transition: 0.3s;
+
+            z-index: 10;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .botao-expandir-fisica:hover {
+            background: #22c55e;
+
+            transform: scale(1.1);
+        }
+
+
+        /* =========================
+           MODO TELA CHEIA
+        ========================= */
+
+        .slide-expandido {
+            position: fixed;
+
+            inset: 0;
+
+            width: 100vw;
+            height: 100vh;
+
+            background:
+                rgba(0, 0, 0, 0.96);
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+
+            z-index: 9999;
+        }
+
+        .slide-expandido img {
+            max-width: 92vw;
+            max-height: 88vh;
+
+            width: auto;
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 0 60px rgba(0, 0, 0, 0.8);
+
+            user-select: none;
+        }
+
+
+        /* =========================
+           BOTÕES DA TELA CHEIA
+        ========================= */
+
+        .fechar-slide {
+            position: absolute;
+
+            top: 25px;
+            right: 30px;
+
+            width: 48px;
+            height: 48px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.1);
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 10002;
+
+            transition: 0.3s;
+        }
+
+        .fechar-slide:hover {
+            background: #ef4444;
+
+            transform: scale(1.1);
+        }
+
+
+        .seta-expandida {
+            position: absolute;
+
+            top: 50%;
+
+            transform:
+                translateY(-50%);
+
+            width: 55px;
+            height: 55px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255, 255, 255, 0.1);
+
+            color: white;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            z-index: 10001;
+
+            transition: 0.3s;
+        }
+
+        .seta-expandida:hover {
+            background: #22c55e;
+
+            transform:
+                translateY(-50%)
+                scale(1.1);
+        }
+
+        .seta-expandida.anterior {
+            left: 25px;
+        }
+
+        .seta-expandida.proximo {
+            right: 25px;
         }
 
 
@@ -866,6 +1041,40 @@
                 width: 38px;
                 height: 38px;
                 font-size: 18px;
+            }
+
+            .botao-expandir-fisica {
+                width: 40px;
+                height: 40px;
+                font-size: 19px;
+            }
+
+            .slide-expandido {
+                padding: 15px;
+            }
+
+            .slide-expandido img {
+                max-width: 95vw;
+                max-height: 80vh;
+            }
+
+            .seta-expandida {
+                width: 42px;
+                height: 42px;
+                font-size: 19px;
+            }
+
+            .seta-expandida.anterior {
+                left: 10px;
+            }
+
+            .seta-expandida.proximo {
+                right: 10px;
+            }
+
+            .fechar-slide {
+                top: 15px;
+                right: 15px;
             }
 
         }
@@ -1271,6 +1480,18 @@
 
                     <div class="slider-fisica">
 
+                        <!-- BOTÃO EXPANDIR -->
+
+                        <button
+                            class="botao-expandir-fisica"
+                            onclick="expandirSlideFisica()"
+                            aria-label="Expandir imagem"
+                            title="Expandir imagem"
+                        >
+                            ⛶
+                        </button>
+
+
                         <div class="slides-fisica">
 
 
@@ -1280,6 +1501,7 @@
                                 src="1.jpg"
                                 alt="Experimento de Física 1"
                                 class="slide-fisica ativo"
+                                onclick="expandirSlideFisica()"
                             >
 
 
@@ -1289,6 +1511,7 @@
                                 src="2.jpg"
                                 alt="Experimento de Física 2"
                                 class="slide-fisica"
+                                onclick="expandirSlideFisica()"
                             >
 
 
@@ -1298,6 +1521,7 @@
                                 src="3.jpg"
                                 alt="Experimento de Física 3"
                                 class="slide-fisica"
+                                onclick="expandirSlideFisica()"
                             >
 
 
@@ -1307,6 +1531,7 @@
                                 src="4.jpg"
                                 alt="Experimento de Física 4"
                                 class="slide-fisica"
+                                onclick="expandirSlideFisica()"
                             >
 
 
@@ -1316,6 +1541,7 @@
                                 src="5.jpg"
                                 alt="Experimento de Física 5"
                                 class="slide-fisica"
+                                onclick="expandirSlideFisica()"
                             >
 
 
@@ -1325,6 +1551,7 @@
                                 src="6.jpg"
                                 alt="Experimento de Física 6"
                                 class="slide-fisica"
+                                onclick="expandirSlideFisica()"
                             >
 
 
@@ -1334,6 +1561,7 @@
                                 src="7.jpg"
                                 alt="Experimento de Física 7"
                                 class="slide-fisica"
+                                onclick="expandirSlideFisica()"
                             >
 
                         </div>
@@ -1596,7 +1824,7 @@
 
 
     <!-- =========================
-         JAVASCRIPT DO SLIDE
+         JAVASCRIPT
     ========================= -->
 
     <script>
@@ -1609,6 +1837,10 @@
         const indicadoresFisica =
             document.querySelectorAll(".indicador-fisica");
 
+
+        /* =========================
+           MOSTRAR SLIDE
+        ========================= */
 
         function mostrarSlideFisica(numero) {
 
@@ -1635,6 +1867,10 @@
         }
 
 
+        /* =========================
+           MUDAR SLIDE
+        ========================= */
+
         function mudarSlideFisica(direcao) {
 
             slideAtualFisica += direcao;
@@ -1660,6 +1896,10 @@
         }
 
 
+        /* =========================
+           IR PARA SLIDE
+        ========================= */
+
         function irParaSlideFisica(numero) {
 
             mostrarSlideFisica(numero);
@@ -1668,8 +1908,209 @@
 
 
         /* =========================
+           EXPANDIR SLIDE
+        ========================= */
+
+        function expandirSlideFisica() {
+
+            const slideAtual =
+                slidesFisica[slideAtualFisica];
+
+
+            const telaExpandida =
+                document.createElement("div");
+
+            telaExpandida.className =
+                "slide-expandido";
+
+
+            telaExpandida.innerHTML = `
+
+                <button
+                    class="fechar-slide"
+                    onclick="fecharSlideFisica()"
+                    aria-label="Fechar imagem"
+                    title="Fechar"
+                >
+                    ✕
+                </button>
+
+
+                <button
+                    class="seta-expandida anterior"
+                    onclick="mudarSlideExpandido(-1)"
+                    aria-label="Imagem anterior"
+                    title="Imagem anterior"
+                >
+                    ❮
+                </button>
+
+
+                <img
+                    src="${slideAtual.src}"
+                    alt="${slideAtual.alt}"
+                    id="imagemExpandida"
+                >
+
+
+                <button
+                    class="seta-expandida proximo"
+                    onclick="mudarSlideExpandido(1)"
+                    aria-label="Próxima imagem"
+                    title="Próxima imagem"
+                >
+                    ❯
+                </button>
+
+            `;
+
+
+            document.body.appendChild(telaExpandida);
+
+            document.body.style.overflow = "hidden";
+
+
+            /* Clicar fora da imagem fecha */
+
+            telaExpandida.addEventListener(
+                "click",
+                function(event) {
+
+                    if (
+                        event.target ===
+                        telaExpandida
+                    ) {
+
+                        fecharSlideFisica();
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        /* =========================
+           MUDAR SLIDE NO MODO EXPANDIDO
+        ========================= */
+
+        function mudarSlideExpandido(direcao) {
+
+            mudarSlideFisica(direcao);
+
+
+            const imagemExpandida =
+                document.querySelector(
+                    "#imagemExpandida"
+                );
+
+
+            if (imagemExpandida) {
+
+                const novoSlide =
+                    slidesFisica[slideAtualFisica];
+
+                imagemExpandida.src =
+                    novoSlide.src;
+
+                imagemExpandida.alt =
+                    novoSlide.alt;
+
+            }
+
+        }
+
+
+        /* =========================
+           FECHAR MODO EXPANDIDO
+        ========================= */
+
+        function fecharSlideFisica() {
+
+            const telaExpandida =
+                document.querySelector(
+                    ".slide-expandido"
+                );
+
+
+            if (telaExpandida) {
+
+                telaExpandida.remove();
+
+            }
+
+
+            document.body.style.overflow = "";
+
+        }
+
+
+        /* =========================
+           FECHAR COM ESC
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    fecharSlideFisica();
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           SETAS DO TECLADO
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                const telaExpandida =
+                    document.querySelector(
+                        ".slide-expandido"
+                    );
+
+
+                if (!telaExpandida) {
+
+                    return;
+
+                }
+
+
+                if (
+                    event.key === "ArrowRight"
+                ) {
+
+                    mudarSlideExpandido(1);
+
+                }
+
+
+                if (
+                    event.key === "ArrowLeft"
+                ) {
+
+                    mudarSlideExpandido(-1);
+
+                }
+
+            }
+        );
+
+
+        /* =========================
            TROCA AUTOMÁTICA
-           A CADA 15 SEGUNDOS
+           A CADA 200 SEGUNDOS
         ========================= */
 
         setInterval(() => {
